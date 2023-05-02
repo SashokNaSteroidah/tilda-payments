@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    #rec576534884 .tn-form__submit {
+        display: none;
+    }
+</style>
+
+<script>
+    document.querySelector("#rec576534884").onclick = function () {
+
+        // In basket
+        document.querySelector('#input_1496239431201').value = document.querySelector('#nm-1531306540094').value;
+        document.querySelector('#input_1496239459190').value = document.querySelector('#em-1531306243545').value;
+
+        // Убираем кнопки для выбора альтернтивной оплаты в случае выбора другого вида платежей
+        let list_range = document.querySelectorAll(".t-radio");
+
+        if (list_range[0].checked) {
+            let radio_list = document.querySelectorAll(".t-radio__control");
+            radio_list[2].style.display = 'none';
+            radio_list[3].style.display = 'block';
+
+        } else {
+            radio_list[2].style.display = 'block';
+            radio_list[3].style.display = 'none';
+        }
+    }
+
+    // Изменяем ссылку у кнопки при навидении
+    document.querySelectorAll('.tn-atom')[42].onmouseover = function () {
+        amount = document.querySelector('[name="amount_client"]').value
+        document.querySelectorAll('.tn-atom')[42].href = '#order:Пожертвование = ' + amount;
+    }
+</script>
+
+</body>
+</html>
